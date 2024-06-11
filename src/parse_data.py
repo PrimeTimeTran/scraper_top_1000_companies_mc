@@ -1,19 +1,8 @@
 import json
-import pandas as pd
-import sqlite3
-from bs4 import BeautifulSoup
-import requests
-import os
 import datetime
-import time
+from bs4 import BeautifulSoup
 
-if not os.path.exists("downloaded_files"):
-    os.makedirs("downloaded_files")
-
-db_file_path = 'stocks.db'
-conn = sqlite3.connect(db_file_path)
-cur = conn.cursor()
-
+from shared import data_directory,summaries_directory
 
 def safe_parse_na(text):
     if text == 'N/A':
@@ -25,7 +14,6 @@ def safe_parse_na(text):
         else:
             return round(float(text), 2)
 
-
 def safe_parse_thousands(text):
     if text.endswith('k'):
         number_str = text[:-1]
@@ -33,12 +21,11 @@ def safe_parse_thousands(text):
     else:
         return float(text.replace('$', '').replace(',', ''))
 
-
 def generate_json_from_html():
     items = []
     for i in range(1, 11):
         for j in range(1, 6):
-            page_path = f"./downloaded_files/wallstreetzen-{i}-{j}.html"
+            page_path = f"{data_directory}/wallstreetzen-{i}-{j}.html"
             with open(page_path, 'r') as file:
                 page_content = file.read()
             soup = BeautifulSoup(page_content, 'html.parser')
@@ -283,7 +270,7 @@ def generate_json_from_html():
                             jdx += 1
     items_json_str = json.dumps(items, indent=4)
     today = datetime.datetime.today().strftime('%Y-%m-%d')
-    filename = f"stocks-{today}.json"
+    filename = f"{summaries_directory}/stocks-{today}.json"
     with open(filename, 'w') as file:
         file.write(items_json_str)
 

@@ -1,10 +1,9 @@
-## How to scrape top 1000 stocks listed on NYSE & NASDAQ by Market Cap in DESC order.
+## The Goal
 
-- Run 0.download then 1.generate
+To scrape data about the top 1000 performing companies on the stock market by market cap.
 
-- Scraping from "https://www.wallstreetzen.com/stock-screener?p=1&s=mc&sd=desc&t=1"
+After researching I discovered wallstreetzen.com would suit my needs.
 
-- Downloading 10 pages of content, 5 different tabs.
+So we'll scrape the info from them. There are 100 companies on each page so we want 10 pages to have a complete 1000.
 
-- In each file we target the tbody className
-~/Users/future/Documents/Work/_Main/Journals/jobs/db-stock_exchange
+However on each page we want data within multiple tabs so we'll download tab pages for each index page for a total of 50
