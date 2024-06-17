@@ -30,8 +30,7 @@ def generate_json_from_html():
                 page_content = file.read()
             soup = BeautifulSoup(page_content, 'html.parser')
             if j == 1:
-                tbody_element = soup.find(
-                    'tbody', {'class': 'MuiTableBody-root-493'})
+                tbody_element = soup.find_all('tbody')[0]
                 if tbody_element:
                     tr_elements = tbody_element.find_all('tr')
 
@@ -77,8 +76,7 @@ def generate_json_from_html():
             if j == 2:
                 # if j == 2 and False:
                 print('Grab Price')
-                tbody_element = soup.find(
-                    'tbody', {'class': 'MuiTableBody-root-493'})
+                tbody_element = soup.find_all('tbody')[0]
                 if tbody_element:
                     tr_elements = tbody_element.find_all('tr')
                     for _, tr in enumerate(tr_elements):
@@ -134,8 +132,7 @@ def generate_json_from_html():
                             jdx += 1
             if j == 3:
                 print('Grab Dividend')
-                tbody_element = soup.find(
-                    'tbody', {'class': 'MuiTableBody-root-493'})
+                tbody_element = soup.find_all('tbody')[0]
                 if tbody_element:
                     tr_elements = tbody_element.find_all('tr')
                     for _, tr in enumerate(tr_elements):
@@ -180,8 +177,7 @@ def generate_json_from_html():
                             jdx += 1
             if j == 4:
                 print('Grab Earnings & Revenue')
-                tbody_element = soup.find(
-                    'tbody', {'class': 'MuiTableBody-root-493'})
+                tbody_element = soup.find_all('tbody')[0]
                 if tbody_element:
                     tr_elements = tbody_element.find_all('tr')
                     for _, tr in enumerate(tr_elements):
@@ -226,8 +222,7 @@ def generate_json_from_html():
                             jdx += 1
             if j == 5:
                 print('Grab Ownership')
-                tbody_element = soup.find(
-                    'tbody', {'class': 'MuiTableBody-root-493'})
+                tbody_element = soup.find_all('tbody')[0]
                 if tbody_element:
                     tr_elements = tbody_element.find_all('tr')
                     for _, tr in enumerate(tr_elements):

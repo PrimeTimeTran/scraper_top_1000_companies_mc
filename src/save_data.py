@@ -12,7 +12,7 @@ def upload_to_gcs(bucket_name, local_file_path, destination_blob_name):
     print(f"File {local_file_path} uploaded to {destination_blob_name} in bucket {bucket_name}")
 
 today = datetime.datetime.today().strftime('%Y-%m-%d')
-local_file_path = f'{project_dir}/src/stocks-{today}.json'
+local_file_path = f'{project_dir}/tmp/parsed_summaries/stocks-{today}.json'
 destination_blob_name = f'{project_dir}/summaries/top-1000-companies/stocks-{today}.json'
 
 upload_to_gcs(bucket_name, local_file_path, destination_blob_name)
