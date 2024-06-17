@@ -2,7 +2,7 @@ import json
 import datetime
 from bs4 import BeautifulSoup
 
-from shared import data_directory,summaries_directory
+from shared import data_directory, summaries_directory
 
 def safe_parse_na(text):
     if text == 'N/A':
