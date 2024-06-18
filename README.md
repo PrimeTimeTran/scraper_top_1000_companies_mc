@@ -7,7 +7,3 @@ After researching I discovered wallstreetzen.com would suit my needs.
 So we'll scrape the info from them. There are 100 companies on each page so we want 10 pages to have a complete 1000.
 
 However on each page we want data within multiple tabs so we'll download tab pages for each index page for a total of 50
-
-/opt/anaconda3/bin/python -m venv /Users/future/Documents/Work/_Main/.Projects/top_1000_companies_scraper/.venv
-
-source /Users/future/Documents/Work/_Main/.Projects/top_1000_companies_scraper/.venv/bin/activate

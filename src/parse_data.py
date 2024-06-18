@@ -30,6 +30,7 @@ def generate_json_from_html():
                 page_content = file.read()
             soup = BeautifulSoup(page_content, 'html.parser')
             if j == 1:
+                # print('Grab Price')
                 tbody_element = soup.find_all('tbody')[0]
                 if tbody_element:
                     tr_elements = tbody_element.find_all('tr')
@@ -183,7 +184,7 @@ def generate_json_from_html():
                     for _, tr in enumerate(tr_elements):
                         td_elements = tr.find_all('td')
                         symbol = td_elements[0].find('a').get_text()
-                        print(f"symbol {symbol}")
+                        # print(f"symbol {symbol}")
                         index = None
                         for item_idx, item in enumerate(items):
                             if item['sym'] == symbol:
@@ -209,8 +210,8 @@ def generate_json_from_html():
                                     items[index]['earnings_growth_5y'] = safe_parse_na(
                                         span.get_text())
                             else:
-                                print(
-                                    f"TD innerHTML {jdx}: {td.get_text()}")
+                                # print(
+                                #     f"TD innerHTML {jdx}: {td.get_text()}")
                                 if jdx == 4:
                                     items[index]['revenue'] = td.get_text()
                                 if jdx == 6:
@@ -228,7 +229,7 @@ def generate_json_from_html():
                     for _, tr in enumerate(tr_elements):
                         td_elements = tr.find_all('td')
                         symbol = td_elements[0].find('a').get_text()
-                        print(f"symbol {symbol}")
+                        # print(f"symbol {symbol}")
                         index = None
                         for item_idx, item in enumerate(items):
                             if item['sym'] == symbol:
@@ -243,13 +244,13 @@ def generate_json_from_html():
                         for td in td_elements:
                             span = td.find('span')
                             if span:
-                                print(
-                                    f"Span innerHTML {jdx}: {span.get_text()}")
-                                # if jdx == 5:
-                                #     items[index]['po_ratio'] = safe_parse_na(span.get_text())
+                                # print(
+                                #     f"Span innerHTML {jdx}: {span.get_text()}")
+                                if jdx == 5:
+                                    items[index]['po_ratio'] = safe_parse_na(span.get_text())
                             else:
-                                print(
-                                    f"TD innerHTML {jdx}: {td.get_text()}")
+                                # print(
+                                #     f"TD innerHTML {jdx}: {td.get_text()}")
                                 if jdx == 2:
                                     items[index]['country'] = td.get_text()
                                 if jdx == 4:

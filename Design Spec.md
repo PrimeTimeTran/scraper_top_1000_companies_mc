@@ -77,7 +77,6 @@ zed ~/Library/LaunchAgents/scrape_top_1000_companies_job.plist
     <true/>
 </dict>
 </plist>
-
 ```
 
 ## Grant Permissions to scripts
