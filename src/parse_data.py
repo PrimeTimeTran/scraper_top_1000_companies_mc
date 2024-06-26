@@ -195,8 +195,8 @@ def generate_json_from_html():
                         for td in td_elements:
                             span = td.find('span')
                             if span:
-                                print(
-                                    f"Span innerHTML {jdx}: {span.get_text()}")
+                                # print(
+                                #     f"Span innerHTML {jdx}: {span.get_text()}")
                                 if jdx == 8:
                                     items[index]['revenue_growth_yoy'] = safe_parse_na(
                                         span.get_text())
