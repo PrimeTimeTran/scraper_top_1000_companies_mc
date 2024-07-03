@@ -3,7 +3,7 @@ import datetime
 from bs4 import BeautifulSoup
 
 from shared import data_directory, summaries_directory
-
+# /Users/future/Documents/Work/_Main/.Projects/scraper_top_1000_companies_mc/src/parse_data.py
 def safe_parse_na(text):
     if text == 'N/A':
         return None
