@@ -12,9 +12,9 @@ def upload_to_gcs(bucket_name, local_file_path, destination_blob_name):
     print(f"File {local_file_path} uploaded to {destination_blob_name} in bucket {bucket_name}")
 
 today = datetime.datetime.today().strftime('%Y-%m-%d')
-local_file_path = f'{project_dir}/tmp/parsed_summaries/stocks-{today}.json'
+local_file_path = f'{project_dir}/tmp/parsed_summaries/{today}.json'
 # destination_blob_name = f'{project_dir}/summaries/top-1000-companies/stocks-{today}.json'
 # https://console.cloud.google.com/storage/browser/turboship-dev-alpha/top_1000_companies_json;tab=objects?project=turboship-dev&prefix=&forceOnObjectsSortingFiltering=false
-destination_blob_name = f'/top_1000_companies_json/stocks-{today}.json'
+destination_blob_name = f'/scraper_top_1000_companies_mc/stocks-{today}.json'
 
 upload_to_gcs(bucket_name, local_file_path, destination_blob_name)

@@ -10,6 +10,7 @@ Use the following to build the scraper.
 - Bash
 
 ## Define Process
+
 Define the process which'll run the script on the appropriate days.
 
 zed ~/Library/LaunchAgents/scrape_top_1000_companies_job.plist
@@ -24,7 +25,7 @@ zed ~/Library/LaunchAgents/scrape_top_1000_companies_job.plist
     <key>ProgramArguments</key>
     <array>
         <string>/bin/bash</string>
-        <string>/Users/future/Documents/Work/_Main/.Projects/top_1000_companies_scraper/src/scraper.sh</string>
+        <string>/Users/future/Documents/Work/_Main/.Projects/scraper_top_1000_companies_mc/src/scraper.sh</string>
     </array>
     <key>StartCalendarInterval</key>
     <array>
@@ -70,9 +71,9 @@ zed ~/Library/LaunchAgents/scrape_top_1000_companies_job.plist
         </dict>
     </array>
     <key>StandardOutPath</key>
-    <string>/Users/future/Documents/Work/_Main/.Projects/top_1000_companies_scraper/tmp/logs/daily.log</string>
+    <string>/Users/future/Documents/Work/_Main/.Projects/scraper_top_1000_companies_mc/tmp/logs/daily.log</string>
     <key>StandardErrorPath</key>
-    <string>/Users/future/Documents/Work/_Main/.Projects/top_1000_companies_scraper/tmp/logs/error.log</string>
+    <string>/Users/future/Documents/Work/_Main/.Projects/scraper_top_1000_companies_mc/tmp/logs/error.log</string>
     <key>RunAtLoad</key>
     <true/>
 </dict>
@@ -88,19 +89,20 @@ chmod +x scraper.sh collect_data.py parse_pages.py save_data.py
 launchctl load ~/Library/LaunchAgents/scrape_top_1000_companies_job.plist
 
 ## Confirm Job Scheduled
+
 launchctl list | grep seepdeep
 
 ## Updating Daemon
 
 - Unload Daemon
-launchctl unload ~/Library/LaunchAgents/scrape_top_1000_companies_job.plist
+  launchctl unload ~/Library/LaunchAgents/scrape_top_1000_companies_job.plist
 
 - Makes changes
-zed ~/Library/LaunchAgents/scrape_top_1000_companies_job.plist
+  code ~/Library/LaunchAgents/scrape_top_1000_companies_job.plist
 
 - Reload Daemon
-launchctl load ~/Library/LaunchAgents/scrape_top_1000_companies_job.plist
+  launchctl load ~/Library/LaunchAgents/scrape_top_1000_companies_job.plist
 
 ## Add logging
 
-/Users/future/Documents/Work/\_Main/.Projects/top_1000_companies_scraper/tmp/logs
+/Users/future/Documents/Work/\_Main/.Projects/scraper_top_1000_companies_mc/tmp/logs
